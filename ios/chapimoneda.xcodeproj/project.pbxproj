@@ -34,6 +34,7 @@
 		240516868B4A4A11B6D55BF9 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 894CE4EC57CF47CFAAFCBEB0 /* Octicons.ttf */; };
 		2A04B29DAE8C4525A61585E0 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8482C4B7C64843849B82A88C /* SimpleLineIcons.ttf */; };
 		C45BAF662F3E442AA6342D64 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0E4A61B46ED4EFFB456BDEE /* Zocial.ttf */; };
+		EA76E72A93A84C84B5AD0E44 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EF98DB87CF4B3ABC98B3DF /* libSplashScreen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,8 @@
 		894CE4EC57CF47CFAAFCBEB0 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		8482C4B7C64843849B82A88C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E0E4A61B46ED4EFFB456BDEE /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47E0B6406580493FA51D6CFE /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; name = "SplashScreen.xcodeproj"; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B2EF98DB87CF4B3ABC98B3DF /* libSplashScreen.a */ = {isa = PBXFileReference; name = "libSplashScreen.a"; path = "libSplashScreen.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +286,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				AFD4D6ED3C304F88876311A6 /* libRNVectorIcons.a in Frameworks */,
+				EA76E72A93A84C84B5AD0E44 /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +432,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				1BC519FA6C6248C58094B9A2 /* RNVectorIcons.xcodeproj */,
+				47E0B6406580493FA51D6CFE /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -881,6 +886,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -897,6 +903,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chapimoneda.app/chapimoneda";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
