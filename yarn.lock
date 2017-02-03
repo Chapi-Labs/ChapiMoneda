@@ -2994,6 +2994,10 @@ react-native-keyboard-aware-scroll-view@0.2.0:
   dependencies:
     react-timer-mixin "^0.13.3"
 
+react-native-splash-screen@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-2.0.0.tgz#d03caaef7d92a0ac1eab60ee4204a1d6bf8234ec"
+
 react-native-vector-icons@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.0.0.tgz#6a2f8f4c6ace613aed7748cd530809283e5b1538"

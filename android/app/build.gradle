@@ -108,7 +108,7 @@ android {
         abi {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
-            universalApk false  // If true, also generate a universal APK
+            universalApk true  // If true, also generate a universal APK
             include "armeabi-v7a", "x86"
         }
     }
@@ -135,6 +135,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
     compile project(':react-native-vector-icons')
     compile project(':react-native-admob')
     compile fileTree(dir: "libs", include: ["*.jar"])
