@@ -153,7 +153,7 @@ get inputColor(){
 return this.textColor;
 },
 get inputColorPlaceholder(){
-return '#000000';
+return '#ffffff';
 },
 
 inputGroupMarginBottom:10,
@@ -210,7 +210,7 @@ tabTextColor:'#222222',
 
 
 
-textColor:'#000',
+textColor:'#ffffff',
 inverseTextColor:'#fff',
 textBgColor:'transparent',
 

@@ -144,6 +144,7 @@ export default class App extends Component {
                     <ListItem>
                         <Icon name="cogs" style={{ color: '#ffffff' }} />
                         <Picker
+                          style= {{ color: '#ffffff'}}
                           iosHeader="Select one"
                           mode="dropdown"
                           selectedValue={this.state.selectedType}
@@ -157,6 +158,7 @@ export default class App extends Component {
                     <ListItem>
                         <Icon name="university" style={{ color: '#ffffff' }} />
                         <Picker
+                          style= {{ color: '#ffffff'}}
                           iosHeader="Select one"
                           mode="dropdown"
                           selectedValue={this.state.selectedBank}
