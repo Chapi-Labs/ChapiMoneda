@@ -4,10 +4,9 @@ import {
   StyleSheet,
   Image,
   View,
-  Platform,
-  Dimensions,
+  Dimensions
 } from 'react-native';
-import { Container, Content, Footer, List, ListItem, Button, Icon, Picker, Text, InputGroup, Input } from 'native-base';
+import { Container, Content, Footer, List, Header, Title, ListItem, Button, Icon, Picker, Text, InputGroup, Input } from 'native-base';
 import theme from '../theme/theme';
 const Item = Picker.Item;
 const { height, width } = Dimensions.get('window');
@@ -24,13 +23,12 @@ export default class App extends Component {
       layout: {
         height: height,
         width: width,
-        image: height > width ? vertical: horizontal
+        image: height > width ? vertical: horizontal,
+        margin: height > width ? 120: 80,
+        mButton: height > width ? 20: 0,
       },
-      selectedItem: undefined,
-      selected1: 'key0',
-      results: {
-          items: [],
-      },
+      selectedBank: 'bi',
+      selectedType: 'key0',
     };
     this.setBannerSize = this.setBannerSize.bind(this);
   }
@@ -41,7 +39,9 @@ export default class App extends Component {
       layout: {
         height: relayout.height,
         width:  relayout.width,
-        image:  relayout.height > relayout.width ? vertical: horizontal
+        image:  relayout.height > relayout.width ? vertical: horizontal,
+        margin: relayout.height > relayout.width ? 120: 80,
+        mButton: height > width ? 20: 0,
       }
     });
     console.log(this.state);
@@ -75,6 +75,7 @@ export default class App extends Component {
   }
 
   showInterstital() {
+    console.log('test');
     AdMobInterstitial.showAd((error) => error && console.log(error));
   }
 
@@ -86,57 +87,94 @@ export default class App extends Component {
     });
   }
 
-  onValueChange(value: string) {
+  onTypeChange(value: string) {
       this.setState({
-            selected1: value,
+            selectedType: value,
       });
   }
+  onBankChange(value: string) {
+      this.setState({
+            selectedBank: value,
+      });
+  }
+  onValueChange(value: string) {
+    this.setState({
+        selected1: value,
+    });
+  }   
 
   render() {
     const { bannerSize } = this.state;
     console.log(bannerSize);
 
     return (
-       <Container> 
-            <Content 
-                theme={theme}
-                onLayout={(event) => { this.renderDimensions(event.nativeEvent.layout);}}>
+            
+            <Container
+            onLayout={ (event) => { this.renderDimensions(event.nativeEvent.layout); }}
+            theme={ theme }
+            >
+
               <Image
                 source={this.state.layout.image}
                 style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
                   height: this.state.layout.height,
                   width: this.state.layout.width
                 }}
-                >
-                 
+                >   
+                 <AdMobBanner
+                      bannerSize={this.state.bannerSize}
+                      testDeviceID="EMULATOR"
+                      adUnitID="ca-app-pub-3940256099942544/2934735716"
+                    />
+                    <View 
+                        style={{marginTop: this.state.layout.margin}}
+                    >
                     <ListItem>
-                        <Icon name="university" style={{ color: '#0A69FE' }} />
+                        <InputGroup>
+                            <Icon name="money" style={{ color: '#ffffff' }}/>
+                            <Input placeholder="Tipo de cambio" keyboardType="numeric"/>
+                        </InputGroup>
+                    </ListItem>
+                    <ListItem>
+                        <InputGroup>
+                            <Icon name="envelope" style={{ color: '#ffffff' }}/>
+                            <Input placeholder="EMAIL" />
+                        </InputGroup>
+                    </ListItem>
+                    <ListItem>
+                        <Icon name="cogs" style={{ color: '#ffffff' }} />
                         <Picker
                           iosHeader="Select one"
                           mode="dropdown"
-                          selectedValue={this.state.selected1}
-                          onValueChange={this.onValueChange.bind(this)} >
-                            <Item label="Banco Industrial" value="key0" />
-                            <Item label="Promerica" value="key1" />
+                          selectedValue={this.state.selectedType}
+                          onValueChange={this.onTypeChange.bind(this)} >
+                            <Item label="Compra Internet" value="key0" />
+                            <Item label="Venta Internet" value="key1" />
+                            <Item label="Compra Agencia" value="key2" />
+                            <Item label="Venta Agencia" value="key3" />
                         </Picker>
                     </ListItem>
-       
-                    <Button style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
-                        Sign Up
+                    <ListItem>
+                        <Icon name="university" style={{ color: '#ffffff' }} />
+                        <Picker
+                          iosHeader="Select one"
+                          mode="dropdown"
+                          selectedValue={this.state.selectedBank}
+                          onValueChange={this.onBankChange.bind(this)} >
+                            <Item label="Banco Industrial" value="bi" />
+                            <Item label="Banco Promerica" value="promerica" />
+                        </Picker>
+                    </ListItem>
+                    </View>
+                    <Button block
+                        onPress= { this.showInterstital }
+                        style={{ marginLeft: 10, marginRight: 10, marginTop: this.state.layout.mButton }}
+                    >
+                        Guardar
                     </Button>
-                </Image>
-            </Content>
 
-            <Footer>
-              <AdMobBanner
-                  bannerSize={this.state.bannerSize}
-                  testDeviceID="EMULATOR"
-                  adUnitID="ca-app-pub-3940256099942544/2934735716"
-                />
-            </Footer>
-        </Container>
+                    </Image>
+            </Container>
     );
   }
 }
