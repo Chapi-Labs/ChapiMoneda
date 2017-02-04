@@ -181,7 +181,7 @@ export default class App extends Component {
                                 onChangeText= {(amount) => this.setState({amount})}
                                 placeholder="Tipo de cambio" keyboardType="numeric"/>
                             <Button style={{height: 30,  width: 33, marginRight: 12}} onPress={() => 
-                                alert('Cuando el tipo de cambio ingrese el monto ingresado será notificado')} >
+                                alert('Cuando el tipo de cambio sea igual o mayor al monto ingresado será notificado')} >
                                 <Icon style={{fontSize: 20}} name="question-circle" />
                             </Button>
                         </InputGroup>
