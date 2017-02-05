@@ -17,6 +17,9 @@ const horizontal = require('./../../assets/img/background-horizontal.png');
 import { AdMobInterstitial, AdMobBanner } from 'react-native-admob';
 import SplashScreen from 'react-native-splash-screen';
 
+AdMobInterstitial.setTestDeviceID('ad-unit-newton-labs-chapimoneda');
+AdMobInterstitial.setAdUnitID('ca-app-pub-5810239506156938/2065751809');
+
 export default class App extends Component {
 
   constructor(props) {
@@ -56,8 +59,6 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    AdMobInterstitial.setTestDeviceID('ad-unit-newton-labs-chapimoneda');
-    AdMobInterstitial.setAdUnitID('ca-app-pub-5810239506156938/2065751809');
 
     AdMobInterstitial.addEventListener('interstitialDidLoad',
       () => {});
