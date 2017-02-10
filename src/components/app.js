@@ -113,34 +113,34 @@ export default class App extends Component {
   onSave() {
     const valid = this.validateForm();
     if (valid === true) {
-         this.setState({animating: true});
-   fetch('https://chapimoneda.herokuapp.com/api/notification', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        amount: this.state.amount,
-        email: this.state.email.trim(),
-        bank: this.state.selectedBank,
-        type: this.state.selectedType,
-      })
-    }).then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({animating: false, responseMsg: responseJson});
-        this.showInterstital();
-        if (responseJson === 'updated') {
-            ToastAndroid.show('Se ha actualizado correctamente', ToastAndroid.LONG);
-        }
-        if (responseJson === 'saved') {
-            ToastAndroid.show('Se ha guardado correctamente', ToastAndroid.LONG);
-        }
-      })
-      .catch((error) => {
-        this.setState({animating: false});
-        ToastAndroid.show('Error', ToastAndroid.LONG);
-      });
+      this.setState({animating: true});
+      fetch('https://chapimoneda.herokuapp.com/api/notification', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: this.state.amount,
+          email: this.state.email.trim(),
+          bank: this.state.selectedBank,
+          type: this.state.selectedType,
+        })
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({animating: false, responseMsg: responseJson});
+          this.showInterstital();
+          if (responseJson === 'updated') {
+              ToastAndroid.show('Se ha actualizado correctamente', ToastAndroid.LONG);
+          }
+          if (responseJson === 'saved') {
+              ToastAndroid.show('Se ha guardado correctamente', ToastAndroid.LONG);
+          }
+        })
+        .catch((error) => {
+          this.setState({animating: false});
+          ToastAndroid.show('Error', ToastAndroid.LONG);
+        });
     } else {
         ToastAndroid.show('Falta ingresar información', ToastAndroid.LONG);
     }
@@ -148,8 +148,11 @@ export default class App extends Component {
   }   
 
   validateForm() {
-    return !(this.state.amount === undefined ||
-        this.state.email === undefined);
+    return !(
+        this.state.amount === undefined ||
+        this.state.email === undefined ||
+        this.state.amount === null ||
+        this.state.email === null);
   }
 
   render() {
