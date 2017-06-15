@@ -239,7 +239,9 @@ export default class App extends Component {
                         onPress= { this.onSave.bind(this) }
                         style={{ marginLeft: 10, marginRight: 10, marginTop: this.state.layout.mButton }}
                     >
+                    <Text>
                         Guardar
+                    </Text>
                     </Button>
                     <Spinner style={{opacity: this.state.animating ? 1.0 : 0.0, alignSelf: 'center'}} animating={true}/>
                     </Image>

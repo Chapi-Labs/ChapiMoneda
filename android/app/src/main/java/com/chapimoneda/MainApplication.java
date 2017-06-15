@@ -1,7 +1,6 @@
 package com.chapimoneda;
 
 import android.app.Application;
-import android.util.Log;
 
 
 import android.app.Application;
@@ -24,7 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
-    protected boolean getUseDeveloperSupport() {
+    public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
     }
 
